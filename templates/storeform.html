@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Stores</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+        <p>
+            {{ form.store_name.label }}<br>
+            {{ form.store_name(size=32) }}
+
+            {% if form.store_name.errors %}
+                        {{ form.store_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.store_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.store_name(class="form-control form-control-lg") }}
+                    {% endif %}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address(size=32) }}
+
+            {% if form.address.errors %}
+                        {{ form.address(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.address.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.address(class="form-control form-control-lg") }}
+                    {% endif %}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}
+            <ul>
+            {% for error in form.description.errors %}
+                <li style="color:red;">{{ error }}</li>
+            {% endfor %}
+            </ul>
+
+        </p>
+
+        <p>
+            {{ form.email.label }}
+            <br>
+            {{ form.email(size=32) }}</p>
+            {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+        </div>
+       </fieldset>
+        <div class="form-group">
+        <p>{{ form.submit() }}</p>
+         </div>
+        <br>
+    </form>
+{% endblock %}

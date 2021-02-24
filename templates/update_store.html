@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Stores</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.store_name.label }}<br>
+            {{ form.store_name(size=32) }}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address(size=32) }}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}
+        </p>
+
+        <p>
+            {{ form.email.label }}
+            <br>
+            {{ form.email(size=32) }}</p>
+
+        <p>{{ form.submit() }}</p>
+        <br>
+    </form>
+{% endblock %}

@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<h1><td>{{ store.name }}</td><br></h1><span><a href="{{ url_for('productform', name=store.name) }}">Add a New Product</span></a>
+   <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">SKU</th>
+	  <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+
+    </tr>
+  </thead>
+	{% for product in products %}
+	<tr>
+	<th scope="row">{{ product.id }}</th>
+		<td>{{ product.name }}<br>
+			<a href="{{ url_for('edit_product', name=product.id, store=product.store_id ) }}">Update</a>
+			<a href="{{ url_for('delete_product', name=product.id, store_id=product.store_id ) }}">Delete</a>
+
+	</td>
+	<td>{{ product.description }}
+	</td>
+	<td>{{ product.sku }}
+	</td>
+	<td>{{ product.price }}
+	</td>
+    <td>{{ product.quantity }}
+	</td>
+	</tr>
+
+	{% endfor %}
+</table>
+
+
+
+{% endblock %}

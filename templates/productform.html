@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Product</h1>
+    <form action="" method="POST" >
+        {{ form.hidden_tag() }}
+       <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+
+        <p>
+
+            {{ form.store.label }}<br>
+            {{ form.store(size=32) }}
+
+        </p>
+        <p>
+            {{ form.product_name.label }}<br>
+            {{ form.product_name(size=32) }}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}
+        </p>
+        <p>
+            {{ form.sku.label }}<br>
+            {{ form.sku(size=32) }}
+        </p>
+
+        <p>
+            {{ form.price.label }}<br>
+            {{ form.price(size=32) }}
+        </p>
+
+        <p>
+            {{ form.quantity.label }}<br>
+            {{ form.quantity(size=32) }}</p>
+        </div>
+       </fieldset>
+
+        <p>{{ form.submit() }}</p>
+        <br>
+
+    </form>
+{% endblock %}

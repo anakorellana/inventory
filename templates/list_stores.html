@@ -1,0 +1,37 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Stores</h1>
+   <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Description</th>
+	  <th scope="col">Email</th>
+
+    </tr>
+  </thead>
+	{% for store in stores_list %}
+	<tr>
+	<th scope="row">{{ store.id }}</th>
+		<td>{{ store.name }}<br>
+		<span><a href="{{ url_for('edit_store', store_id=store.id) }}">Edit </span>
+		<span><a href="{{ url_for('product', name=store.name) }}">View Products </span>
+	</td>
+	<td>{{ store.address }}
+	</td>
+	<td>{{ store.description }}
+	</td>
+	<td>{{ store.email }}
+	</td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}
+
+
+
