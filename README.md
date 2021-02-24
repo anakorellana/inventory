@@ -3,6 +3,9 @@ A Flask application that will allow you to add stores and products to your store
 
 # Repository to be cloned
 
+ https://github.com/anakorellana/inventory.git
+ cd proyecto_inventario
+
 # This app will allow you to do the following:
 
 - Adding Stores and Products
